@@ -18,16 +18,27 @@
  */
 var reverseList = function (head) {
     // 双指针
-    if (head == null) return null
-    let current = head
-    let previous = null
-    while (head) {
-        head = head.next
+    // if (head == null) return null
+    // let current = head
+    // let previous = null
+    // while (head) {
+    //     head = head.next
+    //     current.next = previous
+    //     previous = current
+    //     current = head
+    // }
+    // return previous
+
+    // 递归
+    const revious = (current, previous) => {
+        if (current == null) return previous
+        let temp = current.next
         current.next = previous
-        previous = current
-        current = head
+        // previous = current
+        // current = temp
+        return revious(temp, current)
     }
-    return previous
+    return revious(head, null)
 };
 // @lc code=end
 
