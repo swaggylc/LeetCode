@@ -9,9 +9,19 @@
  * @param {character[]} s
  * @return {void} Do not return anything, modify s in-place instead.
  */
-var reverseString = function(s) {
+var reverseString = function (s) {
     // reverse方法
-    return s.reverse()
+    // return s.reverse()
+
+    // 双指针法
+    let left = 0
+    let right = s.length - 1
+    while (left < right) {
+        [s[left], s[right]] = [s[right], s[left]]
+        left++
+        right--
+    }
+    return s
 };
 // @lc code=end
 
